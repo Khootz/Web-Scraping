@@ -15,17 +15,12 @@ The web scraper extracts competition details from both the HKUST and HKU website
 
 The script consists of several parts, as outlined below:
 
-### 1. Helper Functions:
-- **normalize_text()**: Converts text to lowercase, removes punctuation, and collapses extra spaces to standardize text for comparison.
-- **is_near_duplicate()**: Compares two normalized strings and returns `True` if they are similar enough (based on a similarity threshold).
-- **sanitize_output()**: Removes non-ASCII characters (e.g., emojis) and other unwanted symbols, leaving only letters, digits, and whitespace.
-
-### 2. Scraping HKUST Announcements:
+### 1. Scraping HKUST Announcements Website:
 - The script sends a request to the HKUST announcements page and parses the HTML content.
 - It filters for titles containing keywords like "Case," "Challenge," "Competition," "Hackathon," and "Datathon."
 - The relevant announcements are stored in the `hkust_entries` list.
 
-### 3. Scraping HKU Competitions:
+### 3. Scraping HKU Competitions Website:
 - The script sends a request to the HKU competition page and parses the HTML content.
 - It extracts the competition titles and appends them to the `hku_entries` list.
 
@@ -33,8 +28,6 @@ The script consists of several parts, as outlined below:
 - The results from both HKU and HKUST are combined into one list, `combined_entries`.
 - The script uses fuzzy matching to remove duplicates and ensure each entry is unique.
 - The `unique_entries` list holds the final results after deduplication.
-
-### 5. Output:
 - The final, cleaned list of unique competition titles is printed, with special characters removed.
 
 ## How It Works
